@@ -1,1 +1,17 @@
 # Hola mundo
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=spaceapps-2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - psql-db:/var/lib/postgresql:z
+
+volumes:
+  psql-db:
